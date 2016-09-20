@@ -1,4 +1,4 @@
-public class Mantra {
+public class Mantra{
 	public static void main(String[] args){
 		print();
 		print();
