@@ -1,0 +1,20 @@
+public class ExerciseFour {
+	public static void longestTrip(int x1, int y1,//First location
+								   int x2, int y2,//Second location
+								   int x3, int y3){//Third Location
+		double distanceOneTwo = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+		double distanceOneThree = Math.sqrt((x3-x1)*(x3-x1) + (y3-y1)*(y3-y1));
+		double distanceTwoThree = Math.sqrt((x3-x2)*(x3-x2) + (y3-y2)*(y3-y2));
+		
+		double 
+
+		
+	}
+	
+	public static void main(String[] args){
+		longestTrip(1,2,//First Point/Place
+					3,4,//Second Point/Place
+					5,6);//Third Point/place
+		
+    }
+}
