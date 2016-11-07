@@ -24,4 +24,4 @@ public class ExerciseThree {
 				5,6);//Third Point/place
 				
 	}
-}
+} 
