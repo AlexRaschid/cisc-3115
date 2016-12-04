@@ -10,7 +10,6 @@ public class BlackJack {
 				//global ints to track score
 				int dealerScore = 0;
 				int computerScore = 0;
-				String totalScore = "Dealer: " + dealerScore + " | Computer: " + computerScore;
 			
 				
 				System.out.println("Welcome Player! You are the Dealer in this modified game on BlackJack. You play against the computer.");
@@ -31,7 +30,6 @@ public class BlackJack {
 					Scanner response = new Scanner(System.in);
 					System.out.println("Stay or Roll?(S/R)");
 					String choice = response.nextLine();
-					response.close();
 					char choice_letter = choice.charAt(0);
 					
 					
@@ -50,7 +48,7 @@ public class BlackJack {
 					}
 					//convert over
 					
-					if(answer == 0){
+					if(answer == 1){
 						dealerScore += dice.nextInt(11) + 1;
 						
 					}
@@ -69,7 +67,7 @@ public class BlackJack {
 							
 						}else{
 							System.out.println("Roll");
-							computerScore = dice.nextInt(11) + 1;
+							computerScore += dice.nextInt(11) + 1;
 							
 						}
 					x++;
@@ -81,7 +79,7 @@ public class BlackJack {
 
 					
 					//Announces current score and clears int answer
-					System.out.println(totalScore);
+					System.out.println("Dealer: " + dealerScore + " | Computer: " + computerScore);
 					System.out.println("------------------------------------------------------");
 					System.out.println("");
 				}
