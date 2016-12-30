@@ -1,55 +1,68 @@
 import java.util.*;
-public class StringParsing {
-
-		
-		
-	  public static void main(String[] args) {
-	        Scanner console = new Scanner(System.in);
-	        System.out.println("Please type a real sentince");
-	        String userInput = console.nextLine();
-	        console.close();
-	        System.out.println(parseSentince(userInput));
-	        
-	        
-	  }
-	  
-	  
-	  
-	    public static int parseSentince(String sentince){
-	    int parsedString = 1;
-	    int parsedIndexString = 0;
-	    
-	    for(int i = 0; i <= sentince.length()-1; i++){
-	      
-			if(sentince.charAt(i) == ' '){
-				//Skip to the next word.
-				parsedIndexString += parsedString;
-				parsedString = 1;
-				System.out.println("Next word");
+class StringParsing {
+  
+  public static int parseSentence(String sentence){
+  	int firstLetter = 0;
+  	int storedIndex = 0;
+  	
+		for(int pos = 0; pos <= sentence.length()-1; pos++){
+			if(pos == sentence.length()-1 && sentence.charAt(sentence.length()-1) != ' '){
+				sentence += " ";
+			}
+			
+		//	System.out.println(sentence.charAt(pos));
+		//	System.out.println("Last letter: " +  sentence.charAt(sentence.length()-1));
+			
+			if(sentence.charAt(pos) == ' '){
+	
+		//		System.out.print("Word passed: " + sentence.substring(firstLetter,pos) + "\n");
+					
+				storedIndex += parseWord( sentence.substring(firstLetter,pos) );
+				pos++;
+				firstLetter = pos;
 				continue;
-				
-				
-	        
-	        }else if(sentince.toLowerCase().charAt(i) == 'a' ||
-	           sentince.toLowerCase().charAt(i) == 'e' || 
-	           sentince.toLowerCase().charAt(i) == 'i' || 
-	           sentince.toLowerCase().charAt(i) == 'o' || 
-	           sentince.toLowerCase().charAt(i) == 'u'){
-	        	
-	          parsedString *= 2;
-	          
-	          System.out.println("Multiplied");
-	          
-	        }else{
-	          parsedString++;
-	          System.out.println("Added");
-	        }
-	    }
-	    
-	    return parsedString + parsedIndexString;
-	    
-	  }
-	  
-	  
-	  
+			}
+			
+		}  
+		
+		return storedIndex;
+  }
+  
+  
+  
+  public static int parseWord(String word){
+    int parsedWord = 1;
+    
+    for(int i = 0; i <= word.length()-1; i++){
+          char letter = word.toLowerCase().charAt(i);
+      
+        if(letter == 'a' || 
+           letter == 'e' || 
+           letter == 'i' || 
+           letter == 'o' || 
+           letter == 'u'){
+        	
+          parsedWord *= 2;
+          
+        }else{
+          parsedWord++;
+        }
+    }
+     
+    return parsedWord;
+    
+  }
+  
+  
+  
+  public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Please type a real sentence");
+        String sentence = console.nextLine();
+        System.out.println(parseSentence(sentence));
+        
+        
+        
+        
+  }
 }
