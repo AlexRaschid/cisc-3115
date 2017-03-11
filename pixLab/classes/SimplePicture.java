@@ -349,6 +349,8 @@ public class SimplePicture implements DigitalPicture
   */
  public Pixel[][] getPixels2D()
  {
+	 
+   
    int width = getWidth();
    int height = getHeight();
    Pixel[][] pixelArray = new Pixel[height][width];

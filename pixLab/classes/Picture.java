@@ -217,15 +217,81 @@ public class Picture extends SimplePicture
     }
   }
   
+  /** To keep only the blue pixels */
+  public void keepOnlyBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+
+      }
+    }
+  }
+  
+  /** Method to negate the color pixels */
+  public void negate() {
+	  	Pixel[][] pixs = this.getPixels2D();
+	  
+	  	 for(Pixel[] rowArr: pixs) {
+	  		 for(Pixel thePixel: rowArr) {
+	  			 thePixel.setRed(255 - thePixel.getRed());
+	  			thePixel.setBlue(255 - thePixel.getBlue());
+	  			thePixel.setGreen(255 - thePixel.getGreen());
+	  		 }
+	  	 }
+	  
+  }
+  
+  
+  /** Method to negate the color pixels */
+  public void grayScale() {
+	  	Pixel[][] pixs = this.getPixels2D();
+	  
+	  	 for(Pixel[] rowArr: pixs) {
+	  		 for(Pixel thePixel: rowArr) {
+	  			int average = (thePixel.getRed() + thePixel.getBlue() + thePixel.getGreen()) / 2;
+	  			thePixel.setRed(average);
+	  			thePixel.setBlue(average);
+	  			thePixel.setGreen(average);
+	  		 }
+	  	 }
+	  
+  }
+  
+  /** Method make the fish more visiable under water in water.jpg */
+  public void fixUnderWater() {
+	  	Pixel[][] pixs = this.getPixels2D();
+	  
+	  	 for(Pixel[] rowArr: pixs) {
+	  		 for(Pixel thePixel: rowArr) {
+	  			 //Sets the unused pixel to gray
+		  		int gray = (thePixel.getRed() + thePixel.getBlue() + thePixel.getGreen()) / 2;
+
+	  			 if(thePixel.getBlue() >= 160 && thePixel.getRed() <= 25) {
+	  				thePixel.setBlue(gray);
+	  				thePixel.setRed(gray);
+	  				thePixel.setGreen(gray);
+	  			 }
+	  			 
+	  			 
+	  			 
+	  		 }
+	  	 }
+	  
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("water.jpg");
     beach.explore();
-    beach.zeroBlue();
+    //beach.zeroBlue();
     beach.explore();
   }
   
