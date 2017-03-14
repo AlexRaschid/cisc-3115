@@ -84,6 +84,90 @@ public class PictureTester
 	  
   }
   
+  public static void testMirrorVerticalRightHalf(){
+	  
+	  	Picture caterpillar = new Picture("caterpillar.jpg");
+	    caterpillar.explore();
+	    caterpillar.mirrorVerticalRightToLeft();
+	    caterpillar.explore();
+	  
+	  
+  }
+  
+  public static void testMirrorHorizontal(){
+		Picture caterpillar = new Picture("caterpillar.jpg");
+	    caterpillar.explore();
+	    caterpillar.mirrorHorizontal();
+	    caterpillar.explore();
+	  
+	  
+  }
+  
+  public static void testMirrorHorizontalBotToTop(){
+		Picture caterpillar = new Picture("caterpillar.jpg");
+	    caterpillar.explore();
+	    caterpillar.mirrorHorizontalBotToTop();
+	    caterpillar.explore();
+	  
+	  
+}
+  
+  
+  public static void testMirrorDiagonal(){
+		Picture caterpillar = new Picture("caterpillar.jpg");
+	    caterpillar.explore();
+	    caterpillar.mirrorDiagonal();
+	    caterpillar.explore();
+	  
+	  
+}
+  
+  
+  
+  public static void testMirrorArms(){
+	  
+	  	Picture snowman = new Picture("snowman.jpg");
+	  	snowman.explore();
+	  	snowman.mirrorArms();
+	  	snowman.explore();
+	  
+  }
+  
+  
+  
+  public static void testMirrorGull(){
+	  
+	  	Picture seagull = new Picture("seagull.jpg");
+	  	seagull.explore();
+	  	seagull.mirrorGull();
+	  	seagull.explore();
+	  
+  }
+  
+  
+
+  
+  /** Method to test the collage method */
+  public static void testmyCollage()
+  {	    	
+		Picture myCollege = new Picture("640x480.jpg");
+		myCollege.explore();
+		myCollege.myCollage();
+		myCollege.explore();
+  }
+  
+  public static void testCopy()
+  {
+	    Picture canvas = new Picture("640x480.jpg");
+	    canvas.createCollage();
+	    canvas.explore();
+  }
+  
+  
+  
+  
+  
+  
   
   
   /** Main method for testing.  Every class can have a main
@@ -93,12 +177,35 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	testFixUnderWater();
-	//testGrayScale();
-	//testKeepOnlyBlue();
-	//testNegate();
-    //testZeroBlue();
-    //testKeepOnlyBlue();
+	  
+	//One's I made/use
+	  //testFixUnderWater();
+	  //testGrayScale();
+	  //testKeepOnlyBlue();
+	  //testNegate();
+      //testZeroBlue();r
+      //testKeepOnlyBlue();
+	  //testMirrorVertical();
+	  //testMirrorHorizontal();
+	  //testMirrorHorizontalBottomToTop();
+	  //testMirrorDiagonal();
+
+	  
+	  /**##################Please NOTE#######################*/
+	  //For A6, Exercise one. It says to make mirrorVerticalRightToLeft
+	  //Method within Picture.java 
+	  //and test is by using the testMirrorVertical method.
+	  
+	  //Since testMirrorVertical is being used already, im going to name it 
+	  //testMirrorVerticalRightHalf() instead.
+	  //Please do not deduct points for this.
+	  
+	  //testMirrorVerticalRightHalf();
+	  /**##################Please NOTE#######################*/
+	  
+	  
+	
+	  
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
