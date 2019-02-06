@@ -1,5 +1,8 @@
+
+//Alexander E Raschid
+//EMPLID: 23628311
+
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class BankAccount {
@@ -16,17 +19,23 @@ public class BankAccount {
 		boolean notDone = true; // loop control flag
 
 		// open input test cases file
-		File testFile = new File("/Users/MainUser/Desktop/cisc 3115 files/workspace/Assignment 1/src/myinput.txt");
+		File testFile = new File("/Users/MainUser/Desktop/cisc 3115 files/"
+				+ "workspace/Assignment 1/src/myinput.txt");
 		// File testFile = new File("mytestcases.txt");
 
 		// create Scanner object
-		Scanner scFile = new Scanner(testFile); // Input file scanner object for Account Database
-		Scanner kybd = new Scanner(System.in); // Keyboard Scanner Object for input
+		// Input file scanner object for Account Database
+		Scanner scFile = new Scanner(testFile);
+		
+		// Keyboard Scanner Object for input
+		Scanner kybd = new Scanner(System.in); 
 
 		// open the output file
-		PrintWriter outFile = new PrintWriter("/Users/MainUser/Desktop/cisc 3115 files/workspace/Assignment 1/src/myoutput.txt");
+		PrintWriter outFile = new PrintWriter(
+				"/Users/MainUser/Desktop/cisc 3115 files/"
+				+ "workspace/Assignment 1/src/myoutput.txt");
 		// PrintWriter outFile = new PrintWriter("myoutput.txt");
-		//PrintWriter outFile = new PrintWriter(System.out);
+		// PrintWriter outFile = new PrintWriter(System.out);
 
 		/* first part */
 		/* fill and print initial database */
@@ -51,16 +60,20 @@ public class BankAccount {
 				deposit(acctNumArray, balanceArray, numAccts, outFile, kybd);
 				break;
 			case 'w':
-				withdrawal(acctNumArray, balanceArray, numAccts, outFile, kybd);
+				withdrawal(acctNumArray, balanceArray, numAccts,
+						outFile, kybd);
 				break;
 			case 'n':
-				numAccts = newAcct(acctNumArray, balanceArray, numAccts, outFile, kybd);
+				numAccts = newAcct(acctNumArray, balanceArray, numAccts,
+						outFile, kybd);
 				break;
 			case 'x':
-				numAccts = deleteAcct(acctNumArray, balanceArray, numAccts, outFile, kybd);
+				numAccts = deleteAcct(acctNumArray, balanceArray, numAccts,
+						outFile, kybd);
 				break;
 			default:
-				outFile.println("Error: " + choice + " is an invalid selection -  try again");
+				outFile.println("Error: " + choice + 
+						" is an invalid selection -  try again");
 				outFile.println();
 				outFile.flush();
 				break;
@@ -80,16 +93,22 @@ public class BankAccount {
 	}
 
 	/*
-	 * Method readAccts() Input: acctNumArray - reference to array of account
-	 * numbers balanceArray - reference to array of account balances maxAccts -
-	 * maximum number of active accounts allowed Process: Reads the initial database
-	 * of accounts and balances Output: Fills in the initial account and balance
+	 * Method readAccts() Input: acctNumArray - reference to array of
+	 *  account
+	 * numbers balanceArray - reference to array of account balances 
+	 * maxAccts -
+	 * maximum number of active accounts allowed Process: Reads the initial
+	 *  database
+	 * of accounts and balances Output: Fills in the initial account and
+	 *  balance
 	 * arrays and returns the number of active accounts
 	 */
-	public static int readAccts(int[] acctNumArray, double[] balanceArray, int maxAccts) throws IOException {
+	public static int readAccts(int[] acctNumArray, double[] balanceArray, 
+			int maxAccts) throws IOException {
 		// open database input file
 		// create File object
-		File dbFile = new File("/Users/MainUser/Desktop/cisc 3115 files/workspace/Assignment 1/src/myinput.txt");
+		File dbFile = new File("/Users/MainUser/Desktop/cisc 3115 files/"
+				+ "workspace/Assignment 1/src/myinput.txt");
 		// File dbFile = new File("myinput.txt");
 
 		// create Scanner object
@@ -112,22 +131,22 @@ public class BankAccount {
 
 	/*
 	 * Method printAccts: Input: acctNumArray - array of account numbers
-	 * balanceArray - array of account balances numAccts - number of active accounts
-	 * outFile - reference to the output file Process: Prints the database of
-	 * accounts and balances Output: Prints the database of accounts and balances
+	 * balanceArray - array of account balances numAccts - number of active 
+	 * accounts
+	 * outFile - reference to the output file Process: Prints the database 
+	 * of
+	 * accounts and balances Output: Prints the database of accounts and 
+	 * balances
 	 */
-	public static void printAccts(int[] acctNumArray, double[] balanceArray, int numAccts, PrintWriter outFile) {
+	public static void printAccts(int[] acctNumArray, double[] balanceArray,
+			int numAccts, PrintWriter outFile) {
 		outFile.println();
 		outFile.println("\t\tDatabase of Bank Accounts");
 		outFile.println();
 		outFile.println("Account   Balance");
 		for (int index = 0; index < numAccts; index++) {
-			// Skip printing accounts that have been deleted;
-			// Deleted accounts have 0 int values
-			// if(acctNumArray[index] == 0)
-			// continue;
-
-			outFile.printf("%7d  $%7.2f", acctNumArray[index], balanceArray[index]);
+			outFile.printf("%7d  $%7.2f", acctNumArray[index], 
+					balanceArray[index]);
 			outFile.println();
 		}
 		outFile.println();
@@ -137,7 +156,8 @@ public class BankAccount {
 	}
 
 	/*
-	 * Method menu() Input: none Process: Prints the menu of transaction choices
+	 * Method menu() Input: none Process: Prints the menu of 
+	 * 	transaction choices
 	 * Output: Prints the menu of transaction choices
 	 */
 	public static void menu() {
@@ -157,13 +177,18 @@ public class BankAccount {
 	}
 
 	/*
-	 * Method findAcct: Input: acctNumArray - array of account numbers numAccts -
+	 * Method findAcct: Input: acctNumArray - array of account numbers
+	 *  numAccts -
 	 * number of active accounts requestedAccount - requested account
-	 * requested_number Process: Performs a linear search on the acctNunArray for
-	 * the requested account Output: If found, the index of the requested account is
+	 * requested_number Process: Performs a linear search on the acctNunArray
+	 *  for
+	 * the requested account Output: If found, the index of the requested 
+	 * account is
 	 * returned Otherwise, returns -1
 	 */
-	public static int findAcct(int[] acctNumArray, int numAccts, int requestedAccount) {
+	public static int findAcct(int[] acctNumArray, int numAccts, 
+			int requestedAccount)
+	{
 		for (int index = 0; index < numAccts; index++)
 			if (acctNumArray[index] == requestedAccount)
 				return index;
@@ -171,21 +196,28 @@ public class BankAccount {
 	}
 
 	/*
-	 * Method balance: Input: acctNumArray - array of account numbers balanceArray -
-	 * array of account balances numAccts - number of active accounts outFile -
-	 * reference to output file kybd - reference to the "test cases" input file
-	 * Process: Prompts for the requested account Calls findAcct() to see if the
-	 * account exists If the account exists, the balance is printed Otherwise, an
-	 * error message is printed Output: If the account exists, the balance is
+	 * Method balance: Input: acctNumArray - array of account numbers 
+	 * balanceArray -
+	 * array of account balances numAccts - number of active accounts 
+	 * outFile -
+	 * reference to output file kybd - reference to the "test cases" 
+	 * input file
+	 * Process: Prompts for the requested account Calls findAcct() to 
+	 * see if the
+	 * account exists If the account exists, the balance is printed 
+	 * Otherwise, an
+	 * error message is printed Output: If the account exists, the 
+	 * balance is
 	 * printed Otherwise, an error message is printed
 	 */
-	public static void balance(int[] acctNumArray, double[] balanceArray, int numAccts, PrintWriter outFile,
-			Scanner kybd) {
+	public static void balance(int[] acctNumArray, double[] balanceArray, 
+			int numAccts, PrintWriter outFile, Scanner kybd) {
 		int requestedAccount;
 		int index;
 
 		System.out.println();
-		System.out.print("Enter the account number: "); // prompt for account number
+		// prompt for account number
+		System.out.print("Enter the account number: "); 
 		requestedAccount = kybd.nextInt(); // read-in the account number
 
 		// call findAcct to search if requestedAccount exists
@@ -194,8 +226,9 @@ public class BankAccount {
 		if (index == -1) // invalid account
 		{
 			outFile.println("Transaction Requested: Balance Inquiry");
-			outFile.println("Error: Account number " + requestedAccount + " does not exist");
-		} else // valid zccount
+			outFile.println("Error: Account number " + requestedAccount +
+					" does not exist");
+		} else // valid account
 		{
 			outFile.println("Transaction Requested: Balance Inquiry");
 			outFile.println("Account Number: " + requestedAccount);
@@ -208,24 +241,31 @@ public class BankAccount {
 	}
 
 	/*
-	 * Method deposit: Input: acctNumArray - array of account numbers balanceArray -
-	 * array of account balances numAccts - number of active accounts outFile -
-	 * reference to the output file kybd - reference to the "test cases" input file
-	 * Process: Prompts for the requested account Calls findacct() to see if the
-	 * account exists If the account exists, prompts for the amount to deposit If
-	 * the amount is valid, it makes the deposit and prints the new balance
-	 * Otherwise, an error message is printed Output: For a valid deposit, the
+	 * Method deposit: Input: acctNumArray - array of account numbers
+	 *  balanceArray -
+	 * array of account balances numAccts - number of active accounts 
+	 * outFile -
+	 * reference to the output file kybd - reference to the "test cases" 
+	 * input file
+	 * Process: Prompts for the requested account Calls findacct() to see 
+	 * if the
+	 * account exists If the account exists, prompts for the amount to
+	 *  deposit If
+	 * the amount is valid, it makes the deposit and prints the new
+	 *  balance
+	 * Otherwise, an error message is printed Output: For a valid 
+	 * deposit, the
 	 * deposit transaction is printed Otherwise, an error message is printed
 	 */
-	public static void deposit(int[] acctNumArray, double[] balanceArray, int numAccts, PrintWriter outFile,
-			Scanner kybd) {
+	public static void deposit(int[] acctNumArray, double[] balanceArray, 
+			int numAccts, PrintWriter outFile, Scanner kybd) {
 		int requestedAccount;
 		int index;
 		double amountToDeposit;
 
 		System.out.println();
-		System.out.print("Enter the account number: "); // prompt for account number
-		requestedAccount = kybd.nextInt(); // read-in the account number
+		System.out.print("Enter the account number: "); 
+		requestedAccount = kybd.nextInt();
 
 		// call findAcct to search if requestedAccount exists
 		index = findAcct(acctNumArray, numAccts, requestedAccount);
@@ -233,18 +273,20 @@ public class BankAccount {
 		if (index == -1) // invalid account
 		{
 			outFile.println("Transaction Requested: Deposit");
-			outFile.println("Error: Account number " + requestedAccount + " does not exist");
+			outFile.println("Error: Account number " + requestedAccount +
+					" does not exist");
 		} else // valid account
 		{
-			System.out.print("Enter amount to deposit: "); // prompt for amount to deposit
-			amountToDeposit = kybd.nextDouble(); // read-in the amount to deposit
+			System.out.print("Enter amount to deposit: "); 
+			amountToDeposit = kybd.nextDouble(); 
 
 			if (amountToDeposit <= 0.00) {
 				// invalid amount to deposit
 				outFile.println("Transaction Requested: Deposit");
 				outFile.println("Account Number: " + requestedAccount);
 				outFile.println("Amount to Deposit: $" + amountToDeposit);
-				outFile.printf("Error: $%.2f is an invalid amount", amountToDeposit);
+				outFile.printf("Error: $%.2f is an invalid amount", 
+						amountToDeposit);
 				outFile.println();
 			} else {
 				outFile.println("Transaction Requested: Deposit");
@@ -262,15 +304,15 @@ public class BankAccount {
 		outFile.flush(); // flush the output buffer
 	}
 
-	public static void withdrawal(int[] acctNumArray, double[] balanceArray, int numAccts, PrintWriter outFile,
-			Scanner kybd) {
+	public static void withdrawal(int[] acctNumArray, double[] balanceArray, 
+			int numAccts, PrintWriter outFile,Scanner kybd) {
 		int requestedAccount;
 		int index;
 		double amountToWithdraw;
 
 		System.out.println();
-		System.out.print("Enter the account number: "); // prompt for account number
-		requestedAccount = kybd.nextInt(); // read-in the account number
+		System.out.print("Enter the account number: "); 
+		requestedAccount = kybd.nextInt(); 
 
 		// call findAcct to search if requestedAccount exists
 		index = findAcct(acctNumArray, numAccts, requestedAccount);
@@ -278,26 +320,32 @@ public class BankAccount {
 		if (index == -1) // invalid account
 		{
 			outFile.println("Transaction Requested: Withdraw");
-			outFile.println("Error: Account number " + requestedAccount + " does not exist");
+			outFile.println("Error: Account number " + requestedAccount
+					+ " does not exist");
 		} else // valid account
 		{
-			System.out.print("Enter amount to withdraw: "); // prompt for amount to deposit
-			amountToWithdraw = kybd.nextDouble(); // read-in the amount to deposit
+			System.out.print("Enter amount to withdraw: "); 
+			amountToWithdraw = kybd.nextDouble();
 
-			if (amountToWithdraw <= 0.00) // invalid amount to withdraw
+			// invalid amount to withdraw
+			if (amountToWithdraw <= 0.00) 
 			{
 				outFile.println("Transaction Requested: Withdraw");
 				outFile.println("Account Number: " + requestedAccount);
 				outFile.println("Amount to Withdraw: $" + amountToWithdraw);
-				outFile.printf("Error: $%.2f is an invalid amount", amountToWithdraw);
+				outFile.printf("Error: $%.2f is an invalid amount", 
+						amountToWithdraw);
 				outFile.println();
-			} else if (amountToWithdraw > balanceArray[index]) // Insufficient funds to withdraw
+				
+				// Insufficient funds to withdraw
+			} else if (amountToWithdraw > balanceArray[index]) 
 			{
 				outFile.println("Transaction Requested: Withdraw");
 				outFile.println("Account Number: " + requestedAccount);
 				outFile.println("Amount to Withdraw: $" + amountToWithdraw);
 				outFile.println("Current Balance: " + balanceArray[index]);
-				outFile.println("Error: Insufficient Funds - Transaction voided");
+				outFile.println("Error: Insufficient Funds -"
+						+ " Transaction voided");
 				outFile.println();
 			} else {
 				outFile.println("Transaction Requested: Withdraw");
@@ -316,8 +364,9 @@ public class BankAccount {
 
 	}
 
-	public static int newAcct(int[] acctNumArray, double[] balanceArray, int numAccts, PrintWriter outFile,
-			Scanner kybd) {
+	public static int newAcct(int[] acctNumArray, double[] balanceArray, 
+			int numAccts, PrintWriter outFile, Scanner kybd) 
+	{
 
 		System.out.print("Enter a New Account Number:");
 		int inputAcctNum = kybd.nextInt();
@@ -326,24 +375,28 @@ public class BankAccount {
 		if (inputAcctNum < 100000 || inputAcctNum > 999999) {
 			outFile.println("Transaction Requested: New Account");
 			outFile.println("Error: Invalid Account Number Range");
-			outFile.println("Account Numbers must be Integers of 6 digits within the range 100000 - 999999");
+			outFile.println("Account Numbers must be Integers "
+					+ "of 6 digits within the range 100000 - 999999");
 			outFile.println();
 			outFile.flush();
 			return numAccts;
 		}
-
-		int accountIndex = checkArrSpace(acctNumArray); // checks if there is space for a new acct
+		
+		// checks if there is space for a new acct
+		int accountIndex = checkArrSpace(acctNumArray); 
 		switch (accountIndex) {
 		case -1: // No space found to add a new account
 			outFile.println();
 			outFile.println("Transaction Requested: New Account");
-			outFile.println("Error: Max Accounts reached, please delete one to add another.");
+			outFile.println("Error: Max Accounts reached,"
+					+ " please delete one to add another.");
 			outFile.println();
 			outFile.flush();
 			return numAccts;
 		default:
 			switch (findAcct(acctNumArray, numAccts, inputAcctNum)) {
-			case -1: // The inputAcctNum does not exist within the acctNumArray
+			// The inputAcctNum does not exist within the acctNumArray
+			case -1: 
 				acctNumArray[accountIndex] = inputAcctNum;
 				balanceArray[accountIndex] = 0;
 				numAccts++;
@@ -353,8 +406,8 @@ public class BankAccount {
 				outFile.printf("Account %d Created! \n", inputAcctNum);
 				outFile.println();
 
-				//Im purposefully printing an updated table of new accounts
-				//after each new account
+				// Im purposefully printing an updated table of new accounts
+				// after each new account
 				printAccts(acctNumArray, balanceArray, numAccts, outFile);
 
 				outFile.flush();
@@ -363,7 +416,8 @@ public class BankAccount {
 			default:
 				outFile.println();
 				outFile.println("Transaction Requested: New Account");
-				outFile.printf("Error: Account Number %d already exists", inputAcctNum);
+				outFile.printf("Error: Account Number %d already exists",
+						inputAcctNum);
 				outFile.println();
 				outFile.flush();
 				return numAccts;
@@ -372,8 +426,9 @@ public class BankAccount {
 		}
 	}
 
-	public static int deleteAcct(int[] acctNumArray, double[] balanceArray, int numAccts, PrintWriter outFile,
-			Scanner kybd) {
+	public static int deleteAcct(int[] acctNumArray, double[] balanceArray,
+			int numAccts, PrintWriter outFile,Scanner kybd) 
+	{
 		System.out.print("Enter an Account Number:");
 		int inputAcctNum = kybd.nextInt();
 
@@ -383,16 +438,22 @@ public class BankAccount {
 		if (accountIndex == -1) {
 			outFile.println();
 			outFile.println("Transaction Requested: Delete Account");
-			outFile.printf("Error: Account Number %d does not exist", inputAcctNum);
+			outFile.printf("Error: Account Number %d does not exist",
+							inputAcctNum);
 			outFile.println();
 			outFile.flush();
 			return numAccts;
-		} else if (accountIndex != -1 && balanceArray[accountIndex] != 0) // Account Exists w/ non zero balance
+		} 
+		else if (accountIndex != -1 && 
+				//Account Exists w/ non-zero balance
+		   balanceArray[accountIndex] != 0)
 		{
 			outFile.println();
 			outFile.println("Transaction Requested: Delete Account");
-			outFile.printf("Error: Account Number %d has a non-zero balance. \n", inputAcctNum);
-			outFile.println("Please withdraw the balance and try to delete again");
+			outFile.printf("Error: Account Number %d has a non-zero balance."
+			+ " \n", inputAcctNum);
+			outFile.println("Please withdraw the balance and try to delete"
+					+ " again");
 			outFile.println();
 			outFile.flush();
 			return numAccts;
@@ -413,9 +474,8 @@ public class BankAccount {
 		outFile.printf("Account Number %d has been deleted!", inputAcctNum);
 		outFile.println();
 
-		
-		//Im purposefully printing an updated table of new accounts
-		//after each deleted account
+		// Im purposefully printing an updated table of new accounts
+		// after each deleted account
 		printAccts(acctNumArray, balanceArray, numAccts, outFile);
 
 		outFile.flush();
@@ -431,7 +491,7 @@ public class BankAccount {
 		for (int index = 0; index < acctNumArray.length; index++) {
 			// System.out.println(acctNumArray[index]);
 			if (acctNumArray[index] == 0)
-				return index; // Returns first index instance of space in the array
+				return index; // Returns first index of space in the array
 		}
 		return -1; // No space found
 	}
