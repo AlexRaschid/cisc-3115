@@ -1,0 +1,5 @@
+Doe John M brown 34 lawyer 96345.87
+Gold Jane F blonde 43 doctor 123456.78
+Dillon Tom M black 34 teacher 87654.32
+Bush Jill F brown 34 nurse 56764.00
+Monroe James M red 56 postman 77654.32
