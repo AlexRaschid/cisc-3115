@@ -1,0 +1,205 @@
+
+		Database of Bank Accounts
+
+Account   Balance
+ 123456  $ 200.55
+ 567890  $1234.56
+ 987654  $   2.33
+ 222222  $5000.00
+ 333333  $ 999.99
+ 111111  $ 111.11
+ 444444  $ 444.00
+ 555555  $ 550.50
+ 666666  $ 606.06
+ 133337  $   0.00
+
+Transaction Requested: Balance Inquiry
+Account Number: 123456
+Current Balance: $200.55
+
+Transaction Requested: Balance Inquiry
+Error: Account number 999999 does not exist
+
+Transaction Requested: Deposit
+Account Number: 123456
+Old Balance: $200.55
+Amount to Deposit: $100.0
+New Balance: $300.55
+
+Transaction Requested: Deposit
+Account Number: 123456
+Amount to Deposit: $-100.0
+Error: $-100.00 is an invalid amount
+
+Transaction Requested: Deposit
+Error: Account number 999999 does not exist
+
+Transaction Requested: Withdraw
+Account Number: 123456
+Old Balance: $300.55
+Amount to Withdraw: $100.0
+New Balance: $200.55
+
+Transaction Requested: Withdraw
+Account Number: 123456
+Amount to Withdraw: $-100.0
+Error: $-100.00 is an invalid amount
+
+Transaction Requested: Withdraw
+Account Number: 123456
+Amount to Withdraw: $100000.0
+Current Balance: 200.55
+Error: Insufficient Funds - Transaction voided
+
+
+Transaction Requested: Withdraw
+Error: Account number 999999 does not exist
+
+
+Transaction Requested: New Account
+Account 112112 Created! 
+
+
+		Database of Bank Accounts
+
+Account   Balance
+ 123456  $ 200.55
+ 567890  $1234.56
+ 987654  $   2.33
+ 222222  $5000.00
+ 333333  $ 999.99
+ 111111  $ 111.11
+ 444444  $ 444.00
+ 555555  $ 550.50
+ 666666  $ 606.06
+ 133337  $   0.00
+ 112112  $   0.00
+
+
+Transaction Requested: New Account
+Account 515515 Created! 
+
+
+		Database of Bank Accounts
+
+Account   Balance
+ 123456  $ 200.55
+ 567890  $1234.56
+ 987654  $   2.33
+ 222222  $5000.00
+ 333333  $ 999.99
+ 111111  $ 111.11
+ 444444  $ 444.00
+ 555555  $ 550.50
+ 666666  $ 606.06
+ 133337  $   0.00
+ 112112  $   0.00
+ 515515  $   0.00
+
+
+Transaction Requested: New Account
+Account 601601 Created! 
+
+
+		Database of Bank Accounts
+
+Account   Balance
+ 123456  $ 200.55
+ 567890  $1234.56
+ 987654  $   2.33
+ 222222  $5000.00
+ 333333  $ 999.99
+ 111111  $ 111.11
+ 444444  $ 444.00
+ 555555  $ 550.50
+ 666666  $ 606.06
+ 133337  $   0.00
+ 112112  $   0.00
+ 515515  $   0.00
+ 601601  $   0.00
+
+Transaction Requested: Deposit
+Account Number: 112112
+Old Balance: $0.00
+Amount to Deposit: $100.0
+New Balance: $100.00
+
+Transaction Requested: Deposit
+Account Number: 515515
+Old Balance: $0.00
+Amount to Deposit: $100.0
+New Balance: $100.00
+
+Transaction Requested: Deposit
+Account Number: 601601
+Old Balance: $0.00
+Amount to Deposit: $100.0
+New Balance: $100.00
+
+Transaction Requested: Withdraw
+Account Number: 112112
+Old Balance: $100.00
+Amount to Withdraw: $50.0
+New Balance: $50.00
+
+Transaction Requested: Withdraw
+Account Number: 515515
+Old Balance: $100.00
+Amount to Withdraw: $50.0
+New Balance: $50.00
+
+Transaction Requested: Withdraw
+Account Number: 601601
+Old Balance: $100.00
+Amount to Withdraw: $50.0
+New Balance: $50.00
+
+
+Transaction Requested: Delete Account
+Account Number 133337 has been deleted!
+
+		Database of Bank Accounts
+
+Account   Balance
+ 123456  $ 200.55
+ 567890  $1234.56
+ 987654  $   2.33
+ 222222  $5000.00
+ 333333  $ 999.99
+ 111111  $ 111.11
+ 444444  $ 444.00
+ 555555  $ 550.50
+ 666666  $ 606.06
+ 112112  $  50.00
+ 515515  $  50.00
+ 601601  $  50.00
+
+
+Transaction Requested: Delete Account
+Error: Account Number 123456 has a non-zero balance. 
+Please withdraw the balance and try to delete again
+
+
+Transaction Requested: Delete Account
+Error: Account Number 999999 does not exist
+Error: z is an invalid selection -  try again
+
+Error: p is an invalid selection -  try again
+
+
+		Database of Bank Accounts
+
+Account   Balance
+ 123456  $ 200.55
+ 567890  $1234.56
+ 987654  $   2.33
+ 222222  $5000.00
+ 333333  $ 999.99
+ 111111  $ 111.11
+ 444444  $ 444.00
+ 555555  $ 550.50
+ 666666  $ 606.06
+ 112112  $  50.00
+ 515515  $  50.00
+ 601601  $  50.00
+
