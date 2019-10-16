@@ -21,6 +21,10 @@ public class InfoOf3 {
 		System.out.println("strictlyDescending: " + strictlyDescending(firstNum,secondNum,thirdNum));
 	}
 	
+	/** Checks if all inputs are equal
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean allAreEqual(int a, int b, int c){
 		if(a == b && a == c && b == c){
 			return true;
@@ -29,6 +33,10 @@ public class InfoOf3 {
 		}	
 	}
 	
+	/** Checks if only 2 inputs are equal
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean twoAreEqual(int a, int b, int c){
 		int counter = 0;
 		if(a == b){counter++;} 
@@ -42,6 +50,10 @@ public class InfoOf3 {
 		}
 	} // false if all three are equal
 	
+	/** Checks if none of the inputs are equal
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean noneAreEqual(int a, int b, int c){
 		int counter = 0;
 		if(a == b){counter++;} 
@@ -55,6 +67,10 @@ public class InfoOf3 {
 		}
 	}
 	
+	/** Checks if the input numbers are in ascending order
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean areAscending(int a, int b, int c){
 		if(a <= b &&  b <= c){
 			return true;
@@ -63,6 +79,10 @@ public class InfoOf3 {
 		}
 	} // true if a <= b <= c
 	
+	/** Checks if the input numbers are in descending order
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean areDescending(int a, int b, int c){
 		if(a >= b && b >= c){
 			return true;
@@ -71,6 +91,10 @@ public class InfoOf3 {
 		}
 	} // true if a >= b >= c
 	
+	/** Checks if the input numbers are in a strict ascending order
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean strictlyAscending(int a, int b, int c){
 		if(a < b && b < c){
 			return true;
@@ -78,7 +102,11 @@ public class InfoOf3 {
 			return false;
 		}
 	} // true if a < b < c
-	
+
+	/** Checks if the input numbers are in a strict descending order
+	 * 	@param a,b,c any input number
+	 * @return boolean
+	 * */
 	public static boolean strictlyDescending(int a, int b, int c){
 		if(a > b && b > c){
 			return true;
