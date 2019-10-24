@@ -74,10 +74,10 @@ public class Phonebook {
 	        	System.out.println("Phonebook capacity exceeded - increase size of underlying array");
 	        	System.exit(1);
 		   }
-	        System.out.println(scanner.hasNextLine());
-			entries[count].read(scanner);
+	        //System.out.println(scanner.hasNextLine());
+			entries[count] = entries[count].read(scanner);
 			//System.out.println( );
-			System.out.println(count + " " + entries[count]); //TODO: Fix it returning null for some reason
+			//System.out.println(count + " " + entries[count]); //TODO: Fix it returning null for some reason
 			//System.out.println(entries[count].getPhoneNumber().toString());
 			count++;
 		}
