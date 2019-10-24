@@ -95,7 +95,6 @@ public class Phonebook {
    */
    public static String lookup(int size, String lastName, String firstName, PhonebookEntry[] entries)  {
 	   for(int i = 0; i < size; i++){
-		   System.out.println(entries[i]);
 		   if(entries[i].getName() == null){return "";} //Handles a null pointer
 		   if(entries[i].getName().equals(new Name(lastName,firstName))){
 			   return entries[i].getPhoneNumber().toString();
@@ -129,7 +128,7 @@ public class Phonebook {
    */
    public static String reverseLookup(int size, String phoneNum,  PhonebookEntry[] entries){
 	   for(int i = 0; i<size;i++){
-		   if(phoneNum == null || entries[i].getPhoneNumber() == null){return "";} //Handles a null pointer
+		   if(phoneNum == null || entries[i] == null){return "";} //Handles a null pointer
 		   if(entries[i].getPhoneNumber().equals(new PhoneNumber(phoneNum))){
 			   return entries[i].getName().toString();
 		   }
