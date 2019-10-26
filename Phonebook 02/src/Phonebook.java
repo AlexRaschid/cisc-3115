@@ -1,19 +1,20 @@
 import java.io.*;
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
 /** class Phonebook gives us the ability to look up a phone number */
 public class Phonebook {
 
    /** main declares 2 parallel arrays, calls read method, loops to search
    */
+	
    public static void main(String[] args) throws IOException  {
-
+	   try{  
           final int SIZE=100;
           PhonebookEntry[] entries = new PhonebookEntry[SIZE];
           String database = "C:/Users/AlexR/cisc3115/Phonebook 02/src/phonebook.txt";
-          
           int numElts = read(database,entries);
-          
+          //System.out.println(numElts);
+
 	  Scanner keyboard = new Scanner(System.in);
 	  System.out.print("lookup, reverse-lookup, quit (l/r/q)? ");
 
@@ -57,6 +58,12 @@ public class Phonebook {
 		 }
 	  }
 	  keyboard.close();
+   }catch(FileNotFoundException e){
+	   System.out.print("*** IOException *** phonebook.text (No such file or directory)");
+   }catch(Exception e){
+	   //prints the message in read()
+	   System.exit(0);
+   }
    }
 
    /** read method reads from a file into the first/last names and numbers arrays
@@ -70,10 +77,17 @@ public class Phonebook {
 	   Scanner scanner = new Scanner(new File(database));
 	   // read until EOF
 	   while(scanner.hasNext()) {
-	        if (count >= entries.length) {
+	        /*if (count >= entries.length) {
 	        	System.out.println("Phonebook capacity exceeded - increase size of underlying array");
 	        	System.exit(1);
-		   }
+	        }*/
+	        try{ 
+				   if (count >= entries.length) {
+			        	throw new Exception("*** Exception *** Phonebook capacity exceeded - increase size of underlying array");
+			        }
+		        }catch(Exception e){
+		        	System.out.println(e.getMessage());
+		        }
 	        //System.out.println(scanner.hasNextLine());
 			entries[count] = entries[count].read(scanner);
 			//System.out.println( );
