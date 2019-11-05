@@ -1,0 +1,4 @@
+weiss   puppy2  woof-woof
+arnow   java            cuppa
+tenenbaum tenenbaum     da-same
+sokol   brooklyn        college 
